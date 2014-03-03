@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (C) 2012 OTA Update Center
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,11 +19,6 @@
     <PreferenceCategory
         android:title="@string/about_title">
 
-        <Preference
-            android:title="@string/about_ota_title"
-            android:summary="@string/about_ota_summary"
-            android:key="about_pref" />
-        
         <Preference
             android:title="@string/about_version_title"
             android:key="about_version" />

@@ -90,7 +90,7 @@ public class Utils {
     		cachedRcvrySdPath = getprop(Config.OTA_SD_PATH_RECOVERY_PROP);
     		if (cachedRcvrySdPath == null) {
                 if (Environment.isExternalStorageEmulated()) {
-                    cachedRcvrySdPath = "data/media" + userPath;
+                    cachedRcvrySdPath = "data/media/0";
                 } else {
                     cachedRcvrySdPath = "sdcard";
                 }

@@ -211,7 +211,6 @@ public class ListFilesActivity extends ListActivity implements AdapterView.OnIte
         Resources r = ctx.getResources();
         String[] installOpts = r.getStringArray(R.array.install_options);
         final boolean[] selectedOpts = new boolean[installOpts.length];
-        selectedOpts[selectedOpts.length - 1] = true;
 
         AlertDialog.Builder alert = new AlertDialog.Builder(ctx);
         alert.setTitle(R.string.alert_install_title);
@@ -250,39 +249,51 @@ public class ListFilesActivity extends ListActivity implements AdapterView.OnIte
                                 os.writeBytes("rm -f /cache/recovery/command\n");
                                 os.writeBytes("rm -f /cache/recovery/extendedcommand\n");
                                 os.writeBytes("rm -f /cache/recovery/openrecoveryscript\n");
-//                                if (selectedOpts[0]) {
-//                                    os.writeBytes("echo 'backup_rom /sdcard/clockwordmod/backup/" +
-//                                            new SimpleDateFormat("yyyy-MM-dd_HH.mm").format(new Date()) +
-//                                            "' >> /cache/recovery/extendedcommand\n");
-//                                }
-                                if (Build.MANUFACTURER.toLowerCase().contains("sony")) {
-                                    if (selectedOpts[0]) {
-                                        os.writeBytes("echo 'format(\"/data\");' >> /cache/recovery/extendedcommand\n");
-                                    }
+                                os.writeBytes("echo 'mount data' >> /cache/recovery/openrecoveryscript\n");
+
+
+
+                                if (selectedOpts[0]) {       
+
+                                      os.writeBytes("echo '--update_package=/" + Utils.getRcvrySdPath() + "/OTA-Updater/download/" + name + "' >> /cache/recovery/command\n");
+
+                                      if (selectedOpts[2]) {
+                                        //os.writeBytes("echo '--wipe_data' >> /cache/recovery/command\n"); This doesn't seem to work with CWM
+                                        // so remove for now to prevent twrp/philz users from accidently wiping data with no backup
+                                        os.writeBytes("echo '--wipe_cache' >> /cache/recovery/command\n");
+                                    } 
+
                                     if (selectedOpts[1]) {
-                                        os.writeBytes("echo 'format(\"/cache\");' >> /cache/recovery/extendedcommand\n");
+                                        os.writeBytes("echo '--wipe_cache' >> /cache/recovery/command\n");
+                                    }     
+
+                                    if (selectedOpts[3]) {
+                                        os.writeBytes("echo '--wipe_cache' >> /cache/recovery/command\n");
                                     }
 
-                                    //os.writeBytes("echo 'install_zip(\"/" + Utils.getRcvrySdPath() + "/OTA-Updater/download/" + name + "\");' >> /cache/recovery/extendedcommand\n");
-                                } else {
-                                    os.writeBytes("echo 'mount data' >> /cache/recovery/openrecoveryscript\n");
-                                    if (selectedOpts[0]) {
-                                        //os.writeBytes("echo '--wipe_data' >> /cache/recovery/command\n");
+                                }else{
+
+                                    if (selectedOpts[3]) {
+                                        os.writeBytes("echo 'backup SDBOM' >> /cache/recovery/openrecoveryscript\n");
+                                    }  
+
+                                    if (selectedOpts[2]) {
                                         os.writeBytes("echo 'wipe data' >> /cache/recovery/openrecoveryscript\n");
                                     } else {
                                         os.writeBytes("echo 'wipe dalvik' >> /cache/recovery/openrecoveryscript\n");
                                     }
 
-                                        os.writeBytes("echo 'mount " + Utils.getRcvrySdPath() + "' >> /cache/recovery/openrecoveryscript\n");
-                                        //os.writeBytes("echo 'install /" + Utils.getRcvrySdPath() + "/OTA-Updater/download/" + name + "' >> /cache/recovery/openrecoveryscript\n");
-                                        os.writeBytes("echo '--update_package=/" + Utils.getRcvrySdPath() + "/OTA-Updater/download/" + name + "' >> /cache/recovery/command\n");
-                                
                                     if (selectedOpts[1]) {
-                                        //os.writeBytes("echo '--wipe_cache' >> /cache/recovery/command\n");
                                         os.writeBytes("echo 'wipe cache' >> /cache/recovery/openrecoveryscript\n");
-                                    }
-                                }
+                                    }     
+                                 
+                                        os.writeBytes("echo 'mount " + Utils.getRcvrySdPath() + "' >> /cache/recovery/openrecoveryscript\n");   
+                                        os.writeBytes("echo 'install /" + Utils.getRcvrySdPath() + "/OTA-Updater/download/" + name + "' >> /cache/recovery/openrecoveryscript\n");
+                             
+                                      
+                               }
 
+                                
                                 os.writeBytes("sync\n");
 
                                 if (Utils.getMotoOmapReboot()) {

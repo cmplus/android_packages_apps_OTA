@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (C) 2012 OTA Update Center
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,9 +23,10 @@
     </string-array>
     
     <string-array name="install_options">
-        <!-- <item>Backup First</item> -->
-        <item>Wipe Data</item>
+        <item>Click here if you use CWM</item>
         <item>Wipe Cache</item>
+        <item>Wipe Data (TWRP/Philz only)</item>
+        <item>Backup (TWRP/Philz only)</item>
     </string-array>
     
     <string-array name="file_ages">

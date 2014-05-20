@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (C) 2012 OTA Update Center
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,6 +24,9 @@
 
     <item android:id="@+id/about"
         android:title="@string/menu_about" />
+    
+    <item android:id="@+id/donate"
+        android:title="@string/menu_donate" />
 
     <item android:id="@+id/refresh"
         android:title="@string/menu_refresh" />

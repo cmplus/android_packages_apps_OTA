@@ -16,10 +16,10 @@
 
 <resources>
 
-    <string name="app_name">Liquid OTA</string>
+    <string name="app_name">CM Plus+ Update Center</string>
     
-    <string name="notif_text_rom">Liquid OTA Available</string>
-    <string name="notif_source">Liquid Updater</string>
+    <string name="notif_text_rom">CM Plus+ Update Available</string>
+    <string name="notif_source">CM Plus+ Updater</string>
     
     <string name="alert_nodata_title">No Data Connection!</string>
     <string name="alert_nodata_message">You have no data connection\nPlease turn on Wi-Fi or Mobile Data in order to check for and download OTA updates.</string>
@@ -42,7 +42,7 @@
     <string name="alert_downloading">Downloading&#8230;</string>
     <string name="alert_unsupported_title">Unsupported ROM</string>
     <string name="alert_unsupported_message">The ROM developer has not enabled support for the OTA Updater! Please ask them (kindly) to add support before using this app!\n\n(otaupdater.otaid value empty or missing)</string>
-    <string name="alert_update_to">This update will update LiquidSmooth (%1$s) to version %2$s</string>
+    <string name="alert_update_to">This update will update (%1$s) to version %2$s</string>
     <string name="alert_prune_title">Delete files older than</string>
     
     <string name="menu_view">View Downloaded Updates</string>
@@ -51,7 +51,7 @@
     <string name="menu_refresh">Refresh</string>
     <string name="menu_exit">Exit</string>
     <string name="menu_prune">Delete old Files</string>
-    <string name="menu_donate">Donate</string>
+    <string name="menu_donate">Download Page</string>
     
     <string name="toast_rename">File renamed successfully</string>
     <string name="toast_rename_error">There was a problem while renaming the selected file</string>
@@ -69,7 +69,7 @@
     <string name="toast_nosd_error">Your SD card is unavailable</string>
     
     <string name="about_title">About</string>
-    <string name="about_ota_title">Liquid OTA Updater</string>
+    <string name="about_ota_title">CM Plus+ Updater</string>
     <string name="about_ota_summary" translatable="false">https://www.otaupdatecenter.pro</string>
     <string name="about_version_title">Version</string>
     <string name="about_version_unknown">Unknown Version (error in package manager)</string>
@@ -78,7 +78,7 @@
     <string name="main_device">Device</string>
     <string name="main_rom">ROM</string>
     <string name="main_version">ROM Version</string>
-    <string name="main_otaid">Liquid OTA Updater ID</string>
+    <string name="main_otaid">CM Plus+ Updater ID</string>
     <string name="main_updates">Updates</string>
     <string name="main_avail_updates">Available Updates</string>
     <string name="main_updates_none">No updates available</string>
